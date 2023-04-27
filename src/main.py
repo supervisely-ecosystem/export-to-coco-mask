@@ -198,7 +198,8 @@ class MyExport(sly.app.Export):
         storage_dir = os.path.join(sly.app.get_data_dir(), "storage_dir")
         mkdir(storage_dir, True)
 
-        coco_base_dir = os.path.join(storage_dir, project.name)
+        full_archive_name = f"{task_id}_{project.name}"
+        coco_base_dir = os.path.join(storage_dir, full_archive_name)
         mkdir(coco_base_dir)
 
         new_meta = change_geometry_type(meta)
@@ -253,10 +254,7 @@ class MyExport(sly.app.Export):
 
             sly.logger.info(f"dataset {dataset.name} processed!")
 
-        full_archive_name = f"{task_id}_{project.name}"
-        result_archive = os.path.join(sly.app.get_data_dir(), full_archive_name)
-        mkdir(result_archive)
-        return result_archive
+        return coco_base_dir
 
 
 app = MyExport()
