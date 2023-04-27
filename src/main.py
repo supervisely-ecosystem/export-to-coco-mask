@@ -226,6 +226,9 @@ class MyExport(sly.app.Export):
                     image for image in images if image.labels_count > 0 or len(image.tags) > 0
                 ]
 
+            if len(images) == 0:
+                continue
+
             ds_progress = sly.Progress(
                 f"Converting dataset: {dataset.name}",
                 total_cnt=len(images),
