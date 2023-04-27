@@ -6,15 +6,15 @@
   "categories": ["images", "export"],
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "task_location": "workspace_tasks",
   "icon": "",
   "icon_background": "#FFFFFF",
-  "isolate": true,
+  "poster": "",
   "headless": true,
   "context_menu": {
     "target": ["images_project"],
     "context_root": "Download as"
   },
+  "task_location": "workspace_tasks",
   "modal_template_state": {
     "allDatasets": true,
     "datasets": [],
@@ -22,6 +22,5 @@
     "selectedOutput": "images"
   },
   "docker_image": "supervisely/base-py-sdk:6.71.21",
-  "instance_version": "6.7.37",
-  "poster": ""
+  "instance_version": "6.7.37"
 }
