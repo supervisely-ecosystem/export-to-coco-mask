@@ -2,20 +2,25 @@
   "name": "Export to COCO mask",
   "type": "app",
   "version": "2.0.0",
-  "description": "Converts Supervisely with preserved holes to COCO mask format and prepares tar archive for download",
+  "description": "Converts annotations from Supervisely to COCO format as RLE masks with preserving holes",
   "categories": ["images", "export"],
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "task_location": "workspace_tasks",
-  "icon": "",
+  "icon": "https://user-images.githubusercontent.com/57998637/234996225-a530d297-f73d-485c-a21d-928a65b62f40.png",
   "icon_background": "#FFFFFF",
-  "isolate": true,
+  "poster": "https://user-images.githubusercontent.com/57998637/234995761-64275f3d-77c6-4ac8-8c05-762cc6f8ad56.png",
   "headless": true,
   "context_menu": {
     "target": ["images_project"],
     "context_root": "Download as"
   },
+  "task_location": "workspace_tasks",
+  "modal_template_state": {
+    "allDatasets": true,
+    "datasets": [],
+    "selectedFilter": "all",
+    "selectedOutput": "images"
+  },
   "docker_image": "supervisely/base-py-sdk:6.71.21",
-  "instance_version": "6.7.37",
-  "poster": ""
+  "instance_version": "6.7.37"
 }
