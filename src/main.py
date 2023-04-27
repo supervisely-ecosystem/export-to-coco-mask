@@ -204,6 +204,10 @@ class MyExport(sly.app.Export):
 
         new_meta = change_geometry_type(meta)
         categories_mapping = get_categories_map_from_meta(new_meta)
+
+        if not all_datasets and not selected_datasets:
+            all_datasets = True
+
         if all_datasets:
             datasets = list(api.dataset.get_list(context.project_id))
         else:
