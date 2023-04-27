@@ -17,22 +17,19 @@
 
   <div>
     <sly-field
-      title="Filter images"
-      description="Choose whether you want to export all images or only annotated images (that have either labels or tags)"
+      title="Select output"
+      description="Choose between exporting images with annotations or only annotations (.json)"
     >
       <div>
-        <el-radio-group v-model="state.selectedFilter" size="normal">
+        <el-radio-group v-model="state.selectedOutput" size="normal">
           <div>
-            <el-radio label="all"> <span>all images</span></el-radio>
+            <el-radio v-model="state.selectedImages" label="images">
+              <span>Images and annotations</span>
+            </el-radio>
           </div>
           <div>
-            <el-radio
-              label="annotated"
-              style="display: flex; align-items: center"
-              ><span style="white-space: normal"
-                >only annotated images (images without annotations will be
-                skipped and will not be presented in the output archive)</span
-              ></el-radio
+            <el-radio label="annotations">
+              <span>Only annotations (.json)</span></el-radio
             >
           </div>
         </el-radio-group>
@@ -40,19 +37,23 @@
     </sly-field>
 
     <sly-field
-      title="Select output"
-      description="Choose between exporting images with annotations or only annotations (.json)"
+      v-if="state.selectedOutput === 'images'"
+      title="Filter images"
+      description="Choose whether you want to export all images or only annotated images (that have either labels or tags)"
     >
       <div>
-        <el-radio-group v-model="state.selectedOutput" size="normal">
+        <el-radio-group v-model="state.selectedFilter" size="normal">
           <div>
-            <el-radio label="images">
-              <span>images and annotations</span>
-            </el-radio>
+            <el-radio label="all"> <span>All images</span></el-radio>
           </div>
           <div>
-            <el-radio label="annotations">
-              <span>only annotations (.json)</span></el-radio
+            <el-radio
+              label="annotated"
+              style="display: flex; align-items: center"
+              ><span style="white-space: normal"
+                >Only annotated images (images without annotations will be
+                skipped and will not be presented in the output archive)</span
+              ></el-radio
             >
           </div>
         </el-radio-group>
