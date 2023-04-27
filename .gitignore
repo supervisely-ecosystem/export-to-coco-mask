@@ -3,4 +3,3 @@ tmp/
 .venv/
 .DS_Store
 .vscode
-local.env
