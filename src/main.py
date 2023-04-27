@@ -184,7 +184,7 @@ class MyExport(sly.app.Export):
         api = sly.Api.from_env()
 
         task_id = os.environ["TASK_ID"]
-        user_id = os.environ["context.userId"]
+        user_id = os.environ["USER_ID"]
         user_name = api.user.get_info_by_id(user_id)
         project = api.project.get_info_by_id(context.project_id)
         meta_json = api.project.get_meta(context.project_id)
