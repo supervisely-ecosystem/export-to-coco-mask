@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src=""/>
+<img src="https://user-images.githubusercontent.com/57998637/234995761-64275f3d-77c6-4ac8-8c05-762cc6f8ad56.png"/>
 
 # Export to COCO mask
 
@@ -19,23 +19,32 @@
 
 # Overview
 
-The application converts the project in [Superviselyformat](https://docs.supervise.ly/data-organization/00_ann_format_navi) to [COCO format](https://cocodataset.org/#home) as a **downloadable .tar archive**
+When it comes to annotating objects with complex shapes and structures, using masks can be a more accurate and efficient method compared to other techniques like bounding boxes or polygons. Masks allow you to precisely outline the object's shape, including any holes or gaps within it, which is not possible with polygons. Additionally, masks can help in scenarios where objects may overlap or intersect with one another, making it easier to separate and distinguish them. Using masks can provide a more robust and accurate annotation process for complex objects in image analysis tasks.
 
-Application key points:
+The application converts the project from [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi) to [COCO format](https://cocodataset.org/#home) as RLE masks with preserved holes in annotations.
 
-- Supports only **instances.json** from **COCO** format
-- Only bitmaps, polygons, polylines, and rectangles will be saved as masks with RLE. Other types will be saved as polygons.
+⚠️ Only bitmaps, polygons, polylines, and rectangles will be saved as RLE masks. Other types will be saved as polygons.
 
 # How to Use
 
-1. Run app [Export to COCO mask](https://ecosystem.supervise.ly/apps/export-to-coco-mask) from the context menu of **Images Project**:
+1. Run app [Export to COCO mask](https://ecosystem.supervise.ly/apps/export-to-coco-mask) from:
 
-<img src="" width="100%"/>
+   - the context menu of the **Images Project**
 
-1. Select options in the modal window and press the **RUN** button
+      <div align="left" markdown>
+        <img width="454" alt="2023-04-27_23-02-04" src="https://user-images.githubusercontent.com/57998637/234990671-1844c7ef-e1ce-4f8a-abca-4f5f5b74dfa8.png">
+      </div>
 
-<div align="center" markdown>
-  <img src="" width="70%"/>
+   - the personal page of the app in Ecosystem
+
+      <div align="left" markdown>
+        <img width="394" alt="2023-04-27_22-59-38" src="https://user-images.githubusercontent.com/57998637/234990668-b552d09a-1ff9-4e53-814e-08d148ae3d41.png">
+      </div>
+
+2. Select options in the modal window and press the **RUN** button
+
+<div align="left" markdown>
+  <img width="394" alt="2023-04-27_22-59-38" src="">
 </div>
 
 # Results
@@ -44,7 +53,8 @@ After running the application, you will be redirected to the `Tasks` page. Once 
 
 <img src=""/>
 
-You can also find your converted project in  
-`Team Files` -> `tmp > supervisely > export > taskId` -> `<taskId>_<projectName>.tar`
+You can also find your converted project in [Team Files](https://app.supervise.ly/files/)
 
-<img src=""/>
+`tmp > supervisely > export > Export to COCO mask > Task Id` -> `<taskId>_<projectName>.tar`
+
+<img width="422" alt="2023-04-27_23-39-40" src="https://user-images.githubusercontent.com/57998637/234997034-ac247bac-7606-4b98-a950-429ff868e25e.png">
