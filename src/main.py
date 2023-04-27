@@ -184,8 +184,7 @@ class MyExport(sly.app.Export):
         api = sly.Api.from_env()
 
         task_id = os.environ["TASK_ID"]
-        user_id = os.environ["USER_ID"]
-        user_name = api.user.get_info_by_id(user_id)
+        user_name = "Supervisely"
         project = api.project.get_info_by_id(context.project_id)
         meta_json = api.project.get_meta(context.project_id)
         meta = sly.ProjectMeta.from_json(meta_json)
@@ -198,11 +197,16 @@ class MyExport(sly.app.Export):
         storage_dir = os.path.join(sly.app.get_data_dir(), "storage_dir")
         mkdir(storage_dir, True)
 
-        coco_base_dir = os.path.join(storage_dir, project.name)
+        full_archive_name = f"{task_id}_{project.name}"
+        coco_base_dir = os.path.join(storage_dir, full_archive_name)
         mkdir(coco_base_dir)
 
         new_meta = change_geometry_type(meta)
         categories_mapping = get_categories_map_from_meta(new_meta)
+
+        if not all_datasets and not selected_datasets:
+            all_datasets = True
+
         if all_datasets:
             datasets = list(api.dataset.get_list(context.project_id))
         else:
@@ -212,7 +216,6 @@ class MyExport(sly.app.Export):
         for dataset in datasets:
             sly.logger.info(f"processing {dataset.name}...")
             coco_dataset_dir = os.path.join(coco_base_dir, dataset.name)
-            img_dir, ann_dir = create_coco_dataset(coco_dataset_dir)
 
             coco_ann = {}
             images = api.image.get_list(dataset.id)
@@ -221,6 +224,11 @@ class MyExport(sly.app.Export):
                 images = [
                     image for image in images if image.labels_count > 0 or len(image.tags) > 0
                 ]
+
+            if len(images) == 0:
+                continue
+
+            img_dir, ann_dir = create_coco_dataset(coco_dataset_dir)
 
             ds_progress = sly.Progress(
                 f"Converting dataset: {dataset.name}",
@@ -253,10 +261,7 @@ class MyExport(sly.app.Export):
 
             sly.logger.info(f"dataset {dataset.name} processed!")
 
-        full_archive_name = f"{task_id}_{project.name}"
-        result_archive = os.path.join(sly.app.get_data_dir(), full_archive_name)
-        mkdir(result_archive)
-        return result_archive
+        return coco_base_dir
 
 
 app = MyExport()
