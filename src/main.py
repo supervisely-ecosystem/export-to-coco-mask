@@ -216,7 +216,6 @@ class MyExport(sly.app.Export):
         for dataset in datasets:
             sly.logger.info(f"processing {dataset.name}...")
             coco_dataset_dir = os.path.join(coco_base_dir, dataset.name)
-            img_dir, ann_dir = create_coco_dataset(coco_dataset_dir)
 
             coco_ann = {}
             images = api.image.get_list(dataset.id)
@@ -228,6 +227,8 @@ class MyExport(sly.app.Export):
 
             if len(images) == 0:
                 continue
+
+            img_dir, ann_dir = create_coco_dataset(coco_dataset_dir)
 
             ds_progress = sly.Progress(
                 f"Converting dataset: {dataset.name}",
