@@ -21,9 +21,9 @@
 
 When it comes to annotating objects with complex shapes and structures, using masks can be a more accurate and efficient method compared to other techniques like bounding boxes or polygons. Masks allow you to precisely outline the object's shape, including any holes or gaps within it, which is not possible with polygons. Additionally, masks can help in scenarios where objects may overlap or intersect with one another, making it easier to separate and distinguish them. Using masks can provide a more robust and accurate annotation process for complex objects in image analysis tasks.
 
-The application converts the project from [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi) to [COCO format](https://cocodataset.org/#home) as RLE masks with preserved holes in annotations.
+The application converts the project from [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi) to [COCO format](https://cocodataset.org/#home) as masks with uncompressed RLE to preserve holes in annotations.
 
-⚠️ Only bitmaps, polygons, polylines, and rectangles will be saved as RLE masks. Other types will be saved as polygons.
+⚠️ Only bitmaps, polygons, polylines, and rectangles will be saved as masks. Other types will be saved as polygons.
 
 # How to Use
 
@@ -32,29 +32,29 @@ The application converts the project from [Supervisely format](https://docs.supe
    - the context menu of the **Images Project**
 
       <div align="left" markdown>
-        <img width="454" alt="2023-04-27_23-02-04" src="https://user-images.githubusercontent.com/57998637/234990671-1844c7ef-e1ce-4f8a-abca-4f5f5b74dfa8.png">
+        <img width="454" alt="menu" src="https://user-images.githubusercontent.com/57998637/234990671-1844c7ef-e1ce-4f8a-abca-4f5f5b74dfa8.png">
       </div>
 
    - the personal page of the app in Ecosystem
 
       <div align="left" markdown>
-        <img width="394" alt="2023-04-27_22-59-38" src="https://user-images.githubusercontent.com/57998637/234990668-b552d09a-1ff9-4e53-814e-08d148ae3d41.png">
+        <img width="394" alt="personal_page" src="">
       </div>
 
 2. Select options in the modal window and press the **RUN** button
 
-<div align="left" markdown>
-  <img width="394" alt="2023-04-27_22-59-38" src="">
-</div>
+    <div align="left" makdown>
+         <img width="394" alt="modal_window" src="https://user-images.githubusercontent.com/57998637/234990668-b552d09a-1ff9-4e53-814e-08d148ae3d41.png"></img>
+    </div>
 
 # Results
 
 After running the application, you will be redirected to the `Tasks` page. Once application processing has finished, your link for downloading will be available. Click on the `file name` to download it.
 
-<img src=""/>
+<img width="422" alt="tasks_page" src="">
 
 You can also find your converted project in [Team Files](https://app.supervise.ly/files/)
 
 `tmp > supervisely > export > Export to COCO mask > Task Id` -> `<taskId>_<projectName>.tar`
 
-<img width="422" alt="2023-04-27_23-39-40" src="https://user-images.githubusercontent.com/57998637/234997034-ac247bac-7606-4b98-a950-429ff868e25e.png">
+<img width="422" alt="team_files" src="https://user-images.githubusercontent.com/57998637/234997034-ac247bac-7606-4b98-a950-429ff868e25e.png">
