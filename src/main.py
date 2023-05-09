@@ -183,7 +183,6 @@ class MyExport(sly.app.Export):
     def process(self, context: sly.app.Export.Context):
         api = sly.Api.from_env()
 
-        task_id = os.environ["TASK_ID"]
         user_name = "Supervisely"
         project = api.project.get_info_by_id(context.project_id)
         meta_json = api.project.get_meta(context.project_id)
@@ -197,7 +196,7 @@ class MyExport(sly.app.Export):
         storage_dir = os.path.join(sly.app.get_data_dir(), "storage_dir")
         mkdir(storage_dir, True)
 
-        full_archive_name = f"{task_id}_{project.name}"
+        full_archive_name = f"{project.id}_{project.name}"
         coco_base_dir = os.path.join(storage_dir, full_archive_name)
         mkdir(coco_base_dir)
 
