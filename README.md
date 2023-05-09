@@ -21,7 +21,9 @@
 
 When it comes to annotating objects with complex shapes and structures, using masks can be a more accurate and efficient method compared to other techniques like bounding boxes or polygons. Masks allow you to precisely outline the object's shape, including any holes or gaps within it, which is not possible with polygons. Additionally, masks can help in scenarios where objects may overlap or intersect with one another, making it easier to separate and distinguish them. Using masks can provide a more robust and accurate annotation process for complex objects in image analysis tasks.
 
-The application converts the project from [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi) to [COCO format](https://cocodataset.org/#home) as masks with uncompressed RLE to preserve holes in annotations.
+The application converts the project from [Supervisely format](https://docs.supervise.ly/data-organization/00_ann_format_navi) to [COCO format](https://cocodataset.org/#format-data) as masks with uncompressed RLE to preserve holes in annotations.
+
+You can also learn about the COCO format in detail in the [article](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch).
 
 ⚠️ Only bitmaps, polygons, polylines, and rectangles will be saved as masks. Other types will be saved as polygons.
 
