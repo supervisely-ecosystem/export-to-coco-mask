@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/ead97f45-1f99-4198-844c-104e004f52d6"/>
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/627c55ed-b324-45ca-adb2-0bc17de369af"/>
 
 # Export to COCO mask
 
