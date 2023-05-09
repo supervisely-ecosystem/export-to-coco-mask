@@ -6,9 +6,9 @@
   "categories": ["images", "export"],
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "icon": "https://user-images.githubusercontent.com/57998637/234996225-a530d297-f73d-485c-a21d-928a65b62f40.png",
-  "icon_background": "#FFFFFF",
-  "poster": "https://user-images.githubusercontent.com/57998637/234995761-64275f3d-77c6-4ac8-8c05-762cc6f8ad56.png",
+  "icon": "https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/250886a2-3815-44b5-9564-c216eda55105",
+  "icon_cover": true,
+  "poster": "https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/ead97f45-1f99-4198-844c-104e004f52d6",
   "headless": true,
   "context_menu": {
     "target": ["images_project"],
