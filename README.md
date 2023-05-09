@@ -33,16 +33,16 @@ You can also learn about the COCO format in detail in the [article](https://www.
 1. Add app to your team from [Ecosystem](https://ecosystem.supervise.ly/apps/export-to-coco-mask) if it is not there.
 
 2. Open context menu of project -> `Download as` -> `Export to COCO mask` 
-<img src="XXX" />
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/155055d6-1b13-4e97-8407-ffaf4f4a4fbc" />
 
 You can also run the application from the Ecosystem.
-<img src="XXX" />
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/addee2a7-c238-4cfa-9f04-20288235b0d7" />
 
 # How to Use
 
 App creates task in `workspace tasks` list. Once app is finished, you will see download link to resulting tar archive. 
 
-<img src="XXX" />
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/74dddb22-7a5f-4d84-ab32-24c550b29a3f" />
 
 Resulting archive is saved in : 
 
@@ -50,5 +50,7 @@ Resulting archive is saved in :
 
 For example our file path is the following: 
 
-`/tmp/supervisely/export/Export to COCO mask/33518/tomato-slices.tar`.
+`/tmp/supervisely/export/Export to COCO mask/33608/33608_tomato-slices.tar`.
+
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/75ead9ea-222b-4205-ac7d-5a1d5dbe40d6" />
 
