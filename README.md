@@ -26,7 +26,7 @@ When it comes to annotating objects with complex shapes and structures, using ma
 
 You can also learn about the COCO format in detail in the [article](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch).
 
-⚠️ **Only bitmaps, polygons, polylines, and rectangles will be saved as masks. Other types will be saved as polygons.**
+⚠️ **Only bitmaps, polygons, polylines, and rectangles will be saved as masks. Other types are not supported yet.**
 
 # How to Run 
 
