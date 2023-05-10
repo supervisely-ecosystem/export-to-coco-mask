@@ -42,7 +42,7 @@ You can also run the application from the Ecosystem.
 
 App creates task in `workspace tasks` list. Once app is finished, you will see download link to resulting tar archive. 
 
-<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/74dddb22-7a5f-4d84-ab32-24c550b29a3f" />
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/d97c76eb-ffa7-4f5e-aa7c-99a12d948344" />
 
 Resulting archive is saved in : 
 
@@ -50,7 +50,7 @@ Resulting archive is saved in :
 
 For example our file path is the following: 
 
-`/tmp/supervisely/export/Export to COCO mask/33608/33608_tomato-slices.tar`.
+`/tmp/supervisely/export/Export to COCO mask/33620/16145_tomato-slices.tar`.
 
-<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/75ead9ea-222b-4205-ac7d-5a1d5dbe40d6" />
+<img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/da5e97d3-a842-45ee-89b9-51697acbf3dc" />
 
