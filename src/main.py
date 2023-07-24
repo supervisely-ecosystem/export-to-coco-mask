@@ -70,9 +70,16 @@ def get_categories_from_meta(meta):
     return categories
 
 
-def coco_segmentation(segmentation):  # works only with external vertices for now
+def coco_segmentation(segmentation):
     segmentation = [float(coord) for sublist in segmentation for coord in sublist]
     return segmentation
+
+
+def extend_mask_up_to_image(binary_mask, image_shape, origin):
+    y, x = origin.col, origin.row
+    new_mask = np.zeros(image_shape, dtype=binary_mask.dtype)
+    new_mask[x : x + binary_mask.shape[0], y : y + binary_mask.shape[1]] = binary_mask
+    return new_mask
 
 
 def coco_segmentation_rle(segmentation):
@@ -151,10 +158,15 @@ def create_coco_annotation(
 
         for label in ann.labels:
             if label.geometry.geometry_name() == bitmap.Bitmap.geometry_name():
-                segmentation = coco_segmentation_rle(label.geometry.data)
+                segmentation = extend_mask_up_to_image(
+                    label.geometry.data,
+                    (image_info.height, image_info.width),
+                    label.geometry.origin,
+                )
+                segmentation = coco_segmentation_rle(segmentation)
             else:
                 segmentation = label.geometry.to_json()["points"]["exterior"]
-                segmentation = coco_segmentation(segmentation)
+                segmentation = [coco_segmentation(segmentation)]
 
             bbox = label.geometry.to_bbox().to_json()["points"]["exterior"]
             bbox = coco_bbox(bbox)
@@ -162,17 +174,13 @@ def create_coco_annotation(
             label_id += 1
             coco_ann["annotations"].append(
                 dict(
-                    segmentation=[
-                        segmentation
-                    ],  # a list of polygon vertices around the object, but can also be a run-length-encoded (RLE) bit mask
-                    area=label.geometry.area,  # Area is measured in pixels (e.g. a 10px by 20px box would have an area of 200)
-                    iscrowd=0,  # Is Crowd specifies whether the segmentation is for a single object or for a group/cluster of objects
-                    image_id=image_info.id,  # The image id corresponds to a specific image in the dataset
-                    bbox=bbox,  # he COCO bounding box format is [top left x position, top left y position, width, height]
-                    category_id=categories_mapping[
-                        label.obj_class.name
-                    ],  # The category id corresponds to a single category specified in the categories section
-                    id=label_id,  # Each annotation also has an id (unique to all other annotations in the dataset)
+                    segmentation=segmentation,
+                    area=label.geometry.area,
+                    iscrowd=0,
+                    image_id=image_info.id,
+                    bbox=bbox,
+                    category_id=categories_mapping[label.obj_class.name],
+                    id=label_id,
                 )
             )
         progress.iter_done_report()
