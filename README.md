@@ -6,7 +6,7 @@
 <p align="center">
   <a href="#Overview">Overview</a> •
   <a href="#How-to-Run">How to Run</a> •
-  <a href="#How-to-Use">How to Use</a>
+  <a href="#How-to-Use">Result</a>
 </p>
 
 [![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervise.ly/apps/supervisely-ecosystem/export-to-coco-mask)
@@ -37,7 +37,7 @@ You can also learn about the COCO format in detail in the [article](https://www.
 You can also run the application from the Ecosystem.
 <img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/addee2a7-c238-4cfa-9f04-20288235b0d7" />
 
-# How to Use
+# Result
 
 App creates task in `workspace tasks` list. Once app is finished, you will see download link to resulting tar archive. 
 
