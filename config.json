@@ -1,31 +1,31 @@
 {
-    "name": "Export to COCO mask",
-    "type": "app",
-    "version": "2.0.0",
-    "description": "Converts annotations from Supervisely to COCO format as RLE masks with preserving holes",
-    "categories": [
-        "images",
-        "export"
+  "name": "Export to COCO mask",
+  "type": "app",
+  "version": "2.0.0",
+  "description": "Converts annotations from Supervisely to COCO format as RLE masks with preserving holes",
+  "categories": [
+    "images",
+    "export"
+  ],
+  "main_script": "src/main.py",
+  "modal_template": "src/modal.html",
+  "icon": "https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/6f61388c-d71e-48f5-a54a-e60e9dbc051a",
+  "icon_cover": true,
+  "poster": "https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/627c55ed-b324-45ca-adb2-0bc17de369af",
+  "headless": true,
+  "context_menu": {
+    "target": [
+      "images_project"
     ],
-    "main_script": "src/main.py",
-    "modal_template": "src/modal.html",
-    "icon": "https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/6f61388c-d71e-48f5-a54a-e60e9dbc051a",
-    "icon_cover": true,
-    "poster": "https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/627c55ed-b324-45ca-adb2-0bc17de369af",
-    "headless": true,
-    "context_menu": {
-        "target": [
-            "images_project"
-        ],
-        "context_root": "Download as"
-    },
-    "task_location": "workspace_tasks",
-    "modal_template_state": {
-        "allDatasets": true,
-        "datasets": [],
-        "selectedFilter": "all",
-        "selectedOutput": "images"
-    },
-    "docker_image": "supervisely/import-export:6.72.114",
-    "instance_version": "6.7.37"
+    "context_root": "Download as"
+  },
+  "task_location": "workspace_tasks",
+  "modal_template_state": {
+    "allDatasets": true,
+    "datasets": [],
+    "selectedFilter": "all",
+    "selectedOutput": "images"
+  },
+  "docker_image": "supervisely/import-export:6.73.93",
+  "instance_version": "6.9.22"
 }
