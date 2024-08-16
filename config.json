@@ -26,6 +26,6 @@
     "selectedFilter": "all",
     "selectedOutput": "images"
   },
-  "docker_image": "supervisely/import-export:6.73.93",
-  "instance_version": "6.9.22"
+  "docker_image": "supervisely/import-export:6.73.160",
+  "instance_version": "6.11.8"
 }
