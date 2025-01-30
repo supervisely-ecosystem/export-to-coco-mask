@@ -249,7 +249,7 @@ class MyExport(sly.app.Export):
                 image_paths = [os.path.join(img_dir, image_info.name) for image_info in images]                
                 loop.run_until_complete(api.image.download_paths_async(image_ids, image_paths))
 
-            ann_infos = loop.run_until_complete(api.annotation.download_batch_async(dataset.id, image_ids))
+            ann_infos = loop.run_until_complete(api.annotation.download_bulk_async(dataset.id, image_ids))
             anns = [sly.Annotation.from_json(x.annotation, meta) for x in ann_infos]
             anns = [convert_annotation(ann, new_meta) for ann in anns]
             coco_ann, label_id = create_coco_annotation(
