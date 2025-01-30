@@ -242,27 +242,27 @@ class MyExport(sly.app.Export):
                 total_cnt=len(images),
                 min_report_percent=5,
             )
-            for batch in sly.batched(images):
-                image_ids = [image_info.id for image_info in batch]
+            
+            image_ids = [image_info.id for image_info in images]
+            loop = sly.utils.get_or_create_event_loop()
+            if selected_output == "images":
+                image_paths = [os.path.join(img_dir, image_info.name) for image_info in images]                
+                loop.run_until_complete(api.image.download_paths_async(image_ids, image_paths))
 
-                if selected_output == "images":
-                    image_paths = [os.path.join(img_dir, image_info.name) for image_info in batch]
-                    api.image.download_paths(dataset.id, image_ids, image_paths)
-
-                ann_infos = api.annotation.download_batch(dataset.id, image_ids)
-                anns = [sly.Annotation.from_json(x.annotation, meta) for x in ann_infos]
-                anns = [convert_annotation(ann, new_meta) for ann in anns]
-                coco_ann, label_id = create_coco_annotation(
-                    meta,
-                    categories_mapping,
-                    dataset,
-                    user_name,
-                    batch,
-                    anns,
-                    label_id,
-                    coco_ann,
-                    ds_progress,
-                )
+            ann_infos = loop.run_until_complete(api.annotation.download_batch_async(dataset.id, image_ids))
+            anns = [sly.Annotation.from_json(x.annotation, meta) for x in ann_infos]
+            anns = [convert_annotation(ann, new_meta) for ann in anns]
+            coco_ann, label_id = create_coco_annotation(
+                meta,
+                categories_mapping,
+                dataset,
+                user_name,
+                images,
+                anns,
+                label_id,
+                coco_ann,
+                ds_progress,
+            )
             with open(os.path.join(ann_dir, "instances.json"), "w") as file:
                 json.dump(coco_ann, file)
 
