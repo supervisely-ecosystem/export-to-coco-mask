@@ -9,7 +9,7 @@
   <a href="#How-to-Use">Result</a>
 </p>
 
-[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervise.ly/apps/supervisely-ecosystem/export-to-coco-mask)
+[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](../../../../supervisely-ecosystem/export-to-coco-mask)
 [![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervise.ly/slack)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/supervisely-ecosystem/export-to-coco-mask)
 [![views](https://app.supervise.ly/img/badges/views/supervisely-ecosystem/export-to-coco-mask.png)](https://supervise.ly)
@@ -29,7 +29,7 @@ You can also learn about the COCO format in detail in the [article](https://www.
 
 # How to Run 
 
-1. Add app to your team from [Ecosystem](https://ecosystem.supervise.ly/apps/export-to-coco-mask) if it is not there.
+1. Add app to your team from [Ecosystem](../../../../supervisely-ecosystem/export-to-coco-mask) if it is not there.
 
 2. Open context menu of project -> `Download as` -> `Export to COCO mask` 
 <img src="https://github.com/supervisely-ecosystem/export-to-coco-mask/assets/119248312/155055d6-1b13-4e97-8407-ffaf4f4a4fbc" />
